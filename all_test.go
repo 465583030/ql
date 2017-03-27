@@ -3434,3 +3434,9 @@ func TestIssue142(t *testing.T) {
 		}
 	}
 }
+
+func TestTmp(t *testing.T) {
+	list := MustCompile("select a from b where exists (select c from d)")
+	sel := list.l[0].(*selectStmt)
+	dbg("", sel.where.sel)
+}

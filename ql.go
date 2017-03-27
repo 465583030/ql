@@ -516,6 +516,9 @@ func (r *whereRset) planUnaryOp(x *unaryOperation) (plan, error) {
 }
 
 func (r *whereRset) plan(ctx *execCtx) (plan, error) {
+	if sel := r.sel; sel != nil { //TODO-
+		println(sel.String())
+	}
 	expr, err := r.expr.clone(ctx.arg)
 	if err != nil {
 		return nil, err
